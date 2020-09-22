@@ -50,7 +50,7 @@ function getUserRepos() {
      });
     var repoNames = [];
 
-    var url = apiRoot + "users/" + user + "/repos";
+    var url = apiRoot + "users/" + user + "/repos?per_page=1000";
     $.getJSON(url, function(data) {
         $.each(data, function(index, item) {
             repoNames.push(item.name);
@@ -184,7 +184,7 @@ function getStats() {
     var user = $("#username").val();
     var repository = $("#repository").val();
 
-    var url = apiRoot + "repos/" + user + "/" + repository + "/releases";
+    var url = apiRoot + "repos/" + user + "/" + repository + "/releases?per_page=100000";
     $.getJSON(url, showStats).fail(showStats);
 }
 
